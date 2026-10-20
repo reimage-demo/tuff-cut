@@ -34,4 +34,11 @@ body:not(.subpage) .site-header{min-height:76px;padding-block:14px}
   .hero{height:calc(100svh - 64px);grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr);padding-block:8px 12px;gap:20px}
   .hero h1{font-size:30px}.hero .button{margin-top:12px}.hero-hours{margin-top:8px;font-size:12px}
 }
+/* Preserve the supplied artwork. Clip empty margins and blend black into the page. */
+.brand-logo{display:block;flex-shrink:0;width:136px;mix-blend-mode:screen}
+.wordmark .logo-crop{display:block;position:relative;overflow:hidden;width:100%;aspect-ratio:990/500;margin:0;line-height:0}
+.logo-crop img{position:absolute;width:146.263%;max-width:none;height:auto;left:-22.222%;top:-58%}
+body:not(.subpage) .site-header{padding-block:3px}
+.footer-top .brand-logo{width:180px}
+@media(max-height:500px) and (min-width:600px){.site-header .brand-logo{width:110px}body:not(.subpage) .site-header{padding-block:3px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
