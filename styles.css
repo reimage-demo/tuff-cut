@@ -13,26 +13,41 @@
 @media(max-width:800px){.site-header{flex-wrap:wrap;min-height:82px;padding-block:16px}.main-nav{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;border-top:1px solid var(--line);padding-top:12px}.js .main-nav:not(.is-open){display:none}.main-nav a{font-size:16px;min-height:48px}.hero{gap:28px}.hero h1{font-size:42px}.hero-description{font-size:16px}.hero-location{font-size:12px}.hero-hours{font-size:12px}.visit-grid{grid-template-columns:1fr 1.2fr}.visit-grid>div:last-child{grid-column:1/-1;border-left:0;border-top:1px solid var(--line);padding:20px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px}.visit-grid>div:last-child h3,.visit-grid>div:last-child p{margin:0}.visit-grid>div:last-child .small-label{display:none}.section{padding-block:56px}.services-layout{gap:28px}.price-group{grid-template-columns:1fr;gap:8px}.price-group dl>div{font-size:17px}.services-photo>img{height:320px}.owner-profile{gap:30px}.owner-profile>figure>img{height:380px}.owner-copy h3{font-size:36px}.owner-copy .serif{font-size:23px}.owner-copy>p:not(.serif):not(.small-label):not(.contact-note){font-size:16px}.barber-row{grid-template-columns:120px minmax(0,1fr);gap:15px 24px}.barber-row>figure{grid-row:1/3;align-self:start}.barber-contact{grid-column:2;text-align:left;justify-self:start}.reviews-section{gap:30px}.review blockquote{font-size:20px}.call-layout h2{font-size:36px}.call-layout .button{padding-inline:20px;font-size:15px}.payment-method{padding-inline:14px}.payment-slot{padding:14px}}
 @media(max-width:700px){.wrap{width:calc(100% - 40px)}.hero{grid-template-columns:1fr;padding-top:24px;gap:30px}.hero h1{font-size:clamp(36px,8vw,50px)}.hero-description{margin:18px 0 22px}.hero-photo{justify-self:center;max-width:420px;width:100%}.hero-photo img{max-height:510px;aspect-ratio:3/4}.hero-photo figcaption{text-align:center}.hero-hours{font-size:13px}.services-layout,.owner-profile,.reviews-section{grid-template-columns:1fr}.section-heading{display:block}.section-heading>p{margin-top:14px}.price-group{grid-template-columns:90px minmax(0,1fr);gap:16px}.services-photo{margin-top:8px}.services-photo>img{height:auto;aspect-ratio:4/3}.service-photo-note .serif br{display:none}.owner-profile{gap:26px}.owner-profile>figure>img{height:360px;object-position:center 65%}.reviews-heading{display:grid;grid-template-columns:1fr;gap:0}.reviews-photo img{max-height:330px}.call-layout{display:block}.call-layout .button{margin-top:25px}.shop-gallery img{height:330px}.payment-methods{display:block}.payment-method+.payment-method{border-left:0;border-top:1px solid var(--line)}.payment-slot{width:230px}.footer-top{flex-wrap:wrap}.footer-bottom{justify-content:flex-start}.payment-strip{align-items:start}.payment-strip .text-link{max-width:180px}.simple-nav{font-size:14px;gap:4px 18px}}
 @media(max-width:440px){body{font-size:16px}.wordmark{font-size:24px}.wordmark span{font-size:8px}.site-header{gap:15px}.hero{padding-bottom:34px}.hero-description br{display:none}.hero-photo img{max-height:none}.section{padding-block:44px}.visit-grid{grid-template-columns:1fr;gap:22px;padding-block:28px}.visit-grid>div+div{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}.visit-grid>div:last-child{display:block}.visit-grid>div:last-child h3{margin-bottom:6px}.visit-grid>div:last-child p{margin-top:8px}.hours{font-size:16px}.visit-phone{font-size:24px}.price-group{grid-template-columns:65px minmax(0,1fr);gap:12px}.price-group dl>div{font-size:16px;gap:12px}.price-group h3{font-size:12px}.barber-row{grid-template-columns:86px minmax(0,1fr);column-gap:18px}.barber-row>figure{grid-row:1}.barber-copy h3{font-size:26px}.barber-copy>p:last-child{font-size:15px}.barber-contact{grid-column:1/-1}.barber-contact .text-link{font-size:16px}.owner-profile>figure>img{height:310px}.review blockquote{font-size:21px}.call-layout h2{font-size:34px}.call-layout .button{padding-inline:18px;font-size:14px}.payment-strip{display:block}.payment-strip .text-link{max-width:none;margin-top:10px}.footer-top{display:block}.footer-top p{margin-top:20px}.footer-bottom{display:block}.footer-bottom nav{gap:4px 24px;margin-block:10px}.powered-by{font-size:11px}.subpage .site-header{display:block}.simple-nav{margin-top:16px}.legal-content{padding-top:30px}.legal-content h1{font-size:36px}.legal-content p,.legal-content li{font-size:16px}.payment-main{padding-top:30px}.payment-heading h1{font-size:42px}.payment-heading>p:last-child{font-size:16px}}
-/* The closed header and complete hero share the first viewport. */
+/* Keep the centered headline clear while equipment frames the hero edges. */
 body:not(.subpage) .site-header{min-height:76px;padding-block:14px}
-.hero{height:min(440px,calc(100svh - 76px));min-height:0;padding-block:16px 24px;gap:32px;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
-.hero-copy{min-width:0}.hero h1{font-size:clamp(36px,4vw,48px)}
-.hero .button{margin-top:22px;min-width:0;font-size:16px}
+.hero{position:relative;isolation:isolate;display:flex;justify-content:center;align-items:center;overflow:hidden;width:100%;height:min(440px,calc(100svh - 76px));min-height:0;padding:24px 0;gap:0}
+.hero-copy{position:relative;z-index:1;width:min(620px,calc(100% - 360px));min-width:0;text-align:center}
+.hero h1{font-size:clamp(36px,4vw,48px);line-height:1.08}
+.hero .button{margin-top:24px;min-width:0;font-size:16px}
 .hero-hours{font-size:13px;margin-top:14px}
-.hero-photo{height:100%;min-height:0;width:100%;max-width:none;justify-self:center;display:flex;flex-direction:column;align-items:center;gap:8px}
-.hero-photo img{height:calc(100% - 26px);width:auto;max-width:100%;max-height:none;min-height:0;aspect-ratio:3/4;object-fit:contain}
-.hero-photo figcaption{margin:0;text-align:center;font-size:12px;line-height:18px}
+.hero-equipment{position:absolute;inset:0;z-index:0;pointer-events:none;user-select:none}
+.hero-equipment img{position:absolute;object-fit:contain;height:auto;max-width:none}
+.equipment-clipper{width:min(27vw,350px);left:-35px;top:40px;transform:rotate(-12deg)}
+.equipment-shears{width:min(25vw,320px);right:-20px;top:-35px;transform:rotate(-8deg)}
+.equipment-brush{width:min(28vw,350px);right:-38px;bottom:-50px;transform:rotate(12deg)}
+.owner-profile>figure{width:min(100%,420px);justify-self:center}
+.owner-profile>figure>img{height:auto;max-height:none;aspect-ratio:3/4;object-fit:contain;object-position:center}
+.shop-gallery{display:grid;grid-template-columns:.85fr 1.15fr;gap:24px}
+@media(min-width:701px) and (max-width:900px){.hero-copy{width:calc(100% - 280px)}.hero h1{font-size:36px}}
 @media(max-width:700px){
-  .hero{height:min(600px,calc(100svh - 76px));grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:18px;padding-block:12px 18px}
-  .hero h1{font-size:clamp(32px,7.5vw,40px)}
-  .hero .button{margin-top:16px;min-height:48px}
-  .hero-hours{margin-top:10px;font-size:12px}
-  .hero-photo img{max-height:none}
+  .hero{height:min(440px,calc(100svh - 76px));padding:90px 12px;grid-template-rows:none}
+  .hero-copy{width:100%;max-width:440px}
+  .hero h1{font-size:clamp(30px,7.6vw,40px)}
+  .hero .button{margin-top:20px;min-height:48px}
+  .hero-hours{margin-top:12px;font-size:12px}
+  .equipment-clipper{width:160px;left:-38px;top:-62px;transform:rotate(-25deg)}
+  .equipment-shears{width:175px;right:-26px;top:-28px;transform:rotate(6deg)}
+  .equipment-brush{width:200px;right:-30px;bottom:-52px;transform:rotate(-8deg)}
+  .shop-gallery{grid-template-columns:1fr;gap:26px}
 }
 @media(max-height:500px) and (min-width:600px){
   body:not(.subpage) .site-header{min-height:64px;padding-block:8px}
-  .hero{height:calc(100svh - 64px);grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr);padding-block:8px 12px;gap:20px}
-  .hero h1{font-size:30px}.hero .button{margin-top:12px}.hero-hours{margin-top:8px;font-size:12px}
+  .hero{height:calc(100svh - 64px);padding:12px 0}
+  .hero-copy{width:calc(100% - 260px);max-width:500px}
+  .hero h1{font-size:30px}.hero .button{margin-top:16px}.hero-hours{margin-top:10px;font-size:12px}
+  .equipment-clipper{width:180px;left:-45px;top:35px}
+  .equipment-shears{width:170px;right:-35px;top:-20px}
+  .equipment-brush{width:175px;right:-45px;bottom:-35px}
 }
 /* Preserve the supplied artwork. Clip empty margins and blend black into the page. */
 .brand-logo{display:block;flex-shrink:0;width:136px;mix-blend-mode:screen}
