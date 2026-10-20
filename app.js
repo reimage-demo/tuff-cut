@@ -9,7 +9,7 @@
     function closeMenu() {
       nav.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.textContent = 'Menu';
+      toggle.setAttribute('aria-label', 'Open menu');
     }
     function syncMenu() { toggle.hidden = !mobile.matches; closeMenu(); }
     syncMenu();
@@ -17,7 +17,7 @@
     toggle.addEventListener('click', () => {
       const open = nav.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.textContent = open ? 'Close' : 'Menu';
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
     nav.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
     document.addEventListener('keydown', event => {
