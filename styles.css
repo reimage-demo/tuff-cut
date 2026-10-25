@@ -89,3 +89,13 @@ body:not(.subpage) .site-header{padding-block:10px;min-height:100px}
 [data-cut="2228"] .cut-portrait{--fade-end:94.8%}
 [data-cut="2229"] .cut-portrait{--fade-end:83.3%}
 [data-cut="2230"] .cut-portrait{--fade-end:79.7%}
+
+/* Phone controls remain easy to tap without widening the page. */
+@media(max-width:700px){
+  .cut-dots{gap:0;justify-content:space-between}
+  .cut-dots button{flex:1;max-width:44px;min-width:0;width:40px;height:44px;padding:0}
+  .owner-visual>h2{margin-bottom:20px}
+  .barber-contact{width:100%}
+  .barber-contact .text-link{width:100%}
+  .cuts-stage{touch-action:pan-x pan-y pinch-zoom}
+}
