@@ -99,3 +99,10 @@ body:not(.subpage) .site-header{padding-block:10px;min-height:100px}
   .barber-contact .text-link{width:100%}
   .cuts-stage{touch-action:pan-x pan-y pinch-zoom}
 }
+
+/* Content remains visible without JavaScript and in reduced-motion/print views. */
+.scroll-reveal{transition:opacity .65s ease-out}
+.scroll-reveal.reveal-pending{opacity:0;transition:none}
+.scroll-reveal:focus-within{opacity:1;transition:none}
+@media(prefers-reduced-motion:reduce){.scroll-reveal.reveal-pending{opacity:1}}
+@media print{.scroll-reveal.reveal-pending{opacity:1}}

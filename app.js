@@ -37,6 +37,42 @@
   });
 })();
 
+// Reveal each content block once, without changing layout or gallery transforms.
+(() => {
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
+
+  const blocks = document.querySelectorAll([
+    '.site-header', '.hero-copy', '.hero-equipment', '.cuts-heading', '.cuts-carousel',
+    '.visit-grid > div', '.section-heading', '.price-group', '.price-list > p',
+    '.price-list > a', '.services-photo', '.owner-visual', '.owner-copy', '.barber-row',
+    '.portrait-note', '.reviews-heading', '.review', '.call-layout > div',
+    '.shop-gallery > figure', '.payment-strip', '.payment-heading', '.payment-method',
+    '.payment-instructions', '.payment-contact', '.legal-content > *',
+    '.footer-top', '.footer-bottom'
+  ].join(', '));
+  const reveal = block => {
+    block.classList.remove('reveal-pending');
+    observer.unobserve(block);
+  };
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) reveal(entry.target); });
+  }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
+
+  blocks.forEach(block => {
+    block.classList.add('scroll-reveal', 'reveal-pending');
+    observer.observe(block);
+  });
+  // Keyboard users should never land on an invisible control.
+  document.addEventListener('focusin', event => {
+    const block = event.target.closest('.reveal-pending');
+    if (block) reveal(block);
+  });
+  reducedMotion.addEventListener('change', event => {
+    if (event.matches) { blocks.forEach(reveal); observer.disconnect(); }
+  });
+})();
+
 (() => {
   const carousel = document.querySelector('.cuts-carousel');
   if (!carousel) return;
