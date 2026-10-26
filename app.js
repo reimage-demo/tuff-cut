@@ -49,7 +49,8 @@
     '.portrait-note', '.reviews-heading', '.review', '.call-layout > div',
     '.shop-gallery > figure', '.payment-strip', '.payment-heading', '.payment-method',
     '.payment-instructions', '.payment-contact', '.legal-content > *',
-    '.footer-top', '.footer-bottom'
+    '.footer-top', '.footer-bottom', '.landing-intro', '.landing-actions > a',
+    '.landing-details', '.landing-footer'
   ].join(', '));
   const reveal = block => {
     block.classList.remove('reveal-pending');
