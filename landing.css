@@ -1,41 +1,22 @@
-/* Compact shop directory, following the Rent Me CT landing-page layout. */
-.link-landing{background:radial-gradient(ellipse at top,#fff 0,#f2f2ef 75%);min-height:100svh}
-.landing-page{width:min(100% - 40px,440px);margin-inline:auto;padding:42px 0 24px;text-align:center}
-.landing-logo{width:172px;margin:0 auto 24px;padding:14px;background:#fff;border:1px solid #e2e2dd;border-radius:22px;box-shadow:0 12px 35px #1717170a}
+/* A complete shop directory in one phone viewport, with readable tap targets. */
+.link-landing{background:#f5f5f3;min-height:100svh;display:grid;place-items:center}
+.landing-page{width:min(380px,calc(100% - 32px));margin-inline:auto;padding:12px 0;text-align:center}
+.landing-intro{position:relative}
+.landing-logo{width:clamp(80px,16svh,120px);margin:0 auto 10px}
 .landing-logo img{width:100%;height:auto}
-.landing-intro .small-label{font-size:10px;letter-spacing:.1em;color:#62625c}
-.landing-intro h1{font-size:clamp(30px,8vw,40px);line-height:1.1;margin:12px 0 10px;letter-spacing:-.03em}
-.landing-tagline{font-size:16px;color:#62625c}
-.landing-welcome{font-size:12px;font-weight:500;margin-top:16px!important;display:flex;gap:7px;align-items:center;justify-content:center}
-.landing-welcome>span{width:6px;height:6px;border-radius:50%;background:#53534a;flex-shrink:0}
-.landing-actions{display:grid;gap:12px;margin-top:28px;text-align:left}
-.landing-action{display:flex;align-items:center;gap:16px;width:100%;min-height:76px;padding:14px 20px;border:1px solid #d9d9d3;border-radius:12px;background:#fff;text-decoration:none;transition:opacity .65s ease-out,background .18s,border-color .18s}
-.landing-action:hover{background:#eaeae5;border-color:#8c8c83}
+.landing-intro h1{font-size:28px;line-height:1.1;letter-spacing:-.03em;margin:0 0 6px}
+.landing-welcome{font-size:13px;line-height:1.4;color:#555}
+.landing-details{margin:12px 0 16px;font-size:14px;line-height:1.45}
+.landing-details address{max-width:310px;margin-inline:auto;font-weight:600}
+.landing-details p{margin-top:6px}
+.landing-details .landing-services{font-size:12px;color:#555}
+.landing-actions{display:grid;gap:8px}
+.landing-action{display:flex;align-items:center;justify-content:center;min-height:48px;padding:10px 8px;border:1px solid #cececa;border-radius:9px;background:#fff;color:#191919;font-size:15px;font-weight:600;text-align:center;text-decoration:none;line-height:1.3;transition:opacity .65s ease-out,background .18s,border-color .18s}
+.landing-action:hover{background:#e9e9e5;border-color:#888}
 .landing-action-primary{background:#202020;border-color:#202020;color:#fff}
 .landing-action-primary:hover{background:#3c3c3c;border-color:#3c3c3c}
-.landing-action>svg{width:25px;height:25px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.landing-action strong{display:block;font-size:17px;font-weight:600;line-height:1.3}
-.landing-action small{display:block;font-size:12px;line-height:1.4;color:#62625c;margin-top:3px}
-.landing-action-primary small{color:#d0d0ca}
-.landing-action .landing-arrow{margin-left:auto;font-size:22px;font-weight:400}
-.landing-pay-icon{width:25px;height:25px;flex-shrink:0;display:grid;place-items:center;border-radius:6px;font-weight:700;font-size:21px;line-height:1}
-.landing-cashapp{background:#e7f6e8;color:#16742a}
-.landing-zelle{background:#f0eafa;color:#6d36af}
-.landing-details{margin-top:28px;padding:25px 22px;background:#ffffffa6;border:1px solid #deded7;border-radius:16px}
-.landing-details h2{font-size:26px;margin-bottom:10px}
-.landing-services{font-size:14px;line-height:1.6;color:#62625c}
-.landing-details address{font-size:16px;line-height:1.5;margin-top:20px;font-weight:500}
-.landing-directions{font-size:13px;gap:7px;margin-top:2px}
-.landing-hours{font-size:14px;margin-top:16px;padding-top:16px;border-top:1px solid #deded7}
-.landing-hours>div{display:flex;justify-content:space-between;gap:12px;text-align:left}
-.landing-hours>div+div{margin-top:8px}
-.landing-hours dd{font-weight:600;white-space:nowrap}
-.landing-note{font-size:11px;color:#62625c;margin-top:14px}
-.landing-footer{margin-top:24px;color:#62625c;font-size:12px;line-height:1.6}
-.landing-footer>p:first-child{max-width:310px;margin-inline:auto}
-.landing-footer>.text-link{font-size:13px;color:#202020;margin-top:5px}
-.landing-legal{display:flex;justify-content:center;flex-wrap:wrap;gap:0 18px;margin-top:14px}
-.landing-legal a{display:inline-flex;align-items:center;min-height:44px;font-size:11px}
-.landing-copyright{font-size:11px;margin-top:5px}
-.landing-footer .powered-by{display:inline-flex;align-items:center;justify-content:center;min-height:44px;font-size:9px;letter-spacing:.03em}
-@media(max-width:360px){.landing-page{width:calc(100% - 32px);padding-top:28px}.landing-intro .small-label{font-size:9px}.landing-welcome{font-size:11px}.landing-action{padding-inline:16px;gap:12px}.landing-details{padding-inline:18px}.landing-hours{font-size:13px}}
+.landing-footer{margin-top:8px}
+.landing-footer .powered-by{display:inline-flex;align-items:center;justify-content:center;min-height:44px;font-size:9px;color:#62625c;letter-spacing:.02em}
+@media(max-height:650px){.landing-page{padding-block:8px}.landing-logo{width:80px;margin-bottom:6px}.landing-intro h1{font-size:25px}.landing-details{margin:8px 0 12px}.landing-action{min-height:44px}.landing-footer{margin-top:4px}}
+@media(max-height:500px) and (min-width:560px){.landing-page{width:min(720px,calc(100% - 48px));display:grid;grid-template-columns:1fr 1fr;column-gap:28px;align-items:center}.landing-intro{grid-column:1;grid-row:1}.landing-details{grid-column:1;grid-row:2}.landing-actions{grid-column:2;grid-row:1/3}.landing-footer{grid-column:1/-1}.landing-logo{width:76px}}
+@media(max-height:520px) and (max-width:559px){.landing-logo{width:64px}.landing-actions{gap:6px}.landing-details{margin-top:6px;margin-bottom:10px}}

@@ -11,7 +11,7 @@
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Open menu');
     }
-    function syncMenu() { toggle.hidden = !mobile.matches; closeMenu(); }
+    function syncMenu() { toggle.hidden = !mobile.matches && !toggle.hasAttribute('data-menu-always'); closeMenu(); }
     syncMenu();
     mobile.addEventListener('change', syncMenu);
     toggle.addEventListener('click', () => {
@@ -22,6 +22,9 @@
     nav.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && nav.classList.contains('is-open')) { closeMenu(); toggle.focus(); }
+    });
+    document.addEventListener('click', event => {
+      if (nav.classList.contains('is-open') && !nav.contains(event.target) && !toggle.contains(event.target)) closeMenu();
     });
   }
   const config = window.TUFF_CUTS || {};
