@@ -7,8 +7,7 @@
 .js .compact-header .main-nav{position:absolute;z-index:30;top:54px;right:0;width:min(280px,100%);max-height:calc(100svh - 80px);overflow-y:auto;overscroll-behavior:contain}
 .js .compact-header .main-nav:not(.is-open){display:none}
 .js .compact-header .main-nav.is-open{display:grid}
-.landing-intro .menu-toggle{position:absolute;right:0;top:0}
 .subpage .site-header.compact-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;min-height:76px;padding-block:8px}
-.payment-page .compact-header .brand-logo{width:70px}
-.payment-page .compact-header .main-nav{top:calc(100% + 4px)}
+.subpage .site-header.compact-header .brand-logo{width:70px}
+.subpage .site-header.compact-header .main-nav{top:calc(100% + 4px)}
 @media(prefers-reduced-motion:no-preference){.compact-header:has(.main-nav.is-open){opacity:1;transition:none}}
