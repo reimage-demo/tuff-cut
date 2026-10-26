@@ -2,6 +2,12 @@
   'use strict';
   document.documentElement.classList.add('js');
   document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+  const header = document.querySelector('.site-header');
+  if (header) {
+    const updateHeaderHeight = () => document.documentElement.style.setProperty('--site-header-height', `${header.getBoundingClientRect().height}px`);
+    updateHeaderHeight();
+    if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
+  }
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('#main-nav');
   if (toggle && nav) {
@@ -46,7 +52,7 @@
   if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
 
   const blocks = document.querySelectorAll([
-    '.site-header', '.hero-copy', '.hero-equipment', '.cuts-heading', '.cuts-carousel',
+    '.hero-copy', '.hero-equipment', '.cuts-heading', '.cuts-carousel',
     '.visit-grid > div', '.section-heading', '.price-group', '.price-list > p',
     '.price-list > a', '.services-photo', '.owner-visual', '.owner-copy', '.barber-row',
     '.portrait-note', '.reviews-heading', '.review', '.call-layout > div',

@@ -1,13 +1,22 @@
-/* Shared menu for the landing and payment routes. It opens over the content. */
-.compact-header{position:relative;z-index:10}
-.compact-header .menu-toggle{z-index:31;cursor:pointer;border-radius:8px}
-.compact-header .main-nav{display:grid;grid-template-columns:1fr;gap:0;width:100%;padding:8px;background:#fff;border:1px solid #d4d4cf;border-radius:12px;box-shadow:0 12px 30px #0002;text-align:left}
+/* Headers stay visible; dropdown menus overlay the current page position. */
+html{scroll-padding-top:calc(var(--site-header-height,100px) + 16px)}
+.site-header{position:sticky;top:0;z-index:1000;isolation:isolate}
+.site-header::before{content:'';position:absolute;inset:0 calc((100vw - 100%)/-2);z-index:-1;background:#fafaf9;box-shadow:0 1px 8px #0000000d;pointer-events:none}
+.skip-link{z-index:2000}
+.site-header .menu-toggle{z-index:31;cursor:pointer;border-radius:8px}
+.compact-header .main-nav{display:grid;grid-template-columns:1fr;gap:0;align-items:stretch;width:100%;padding:8px;background:#fff;border:1px solid #d4d4cf;border-radius:12px;box-shadow:0 12px 30px #0002;text-align:left}
 .compact-header .main-nav a{display:flex;align-items:center;min-height:44px;padding:8px 12px;font-size:15px;font-weight:600;line-height:1.3;text-decoration:none;border-radius:6px}
-.compact-header .main-nav a:hover{background:#ededE9}
-.js .compact-header .main-nav{position:absolute;z-index:30;top:54px;right:0;width:min(280px,100%);max-height:calc(100svh - 80px);overflow-y:auto;overscroll-behavior:contain}
+.site-header .main-nav a:hover{background:#edede9}
+.js .compact-header .main-nav{position:absolute;z-index:30;top:calc(100% + 4px);right:0;width:min(280px,100%);max-height:calc(100svh - var(--site-header-height,76px) - 16px);overflow-y:auto;overscroll-behavior:contain}
 .js .compact-header .main-nav:not(.is-open){display:none}
 .js .compact-header .main-nav.is-open{display:grid}
 .subpage .site-header.compact-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;min-height:76px;padding-block:8px}
 .subpage .site-header.compact-header .brand-logo{width:70px}
-.subpage .site-header.compact-header .main-nav{top:calc(100% + 4px)}
-@media(prefers-reduced-motion:no-preference){.compact-header:has(.main-nav.is-open){opacity:1;transition:none}}
+@media(max-width:800px){
+  .site-header .main-nav{display:grid;grid-template-columns:1fr;gap:0;align-items:stretch;width:100%;padding:8px;background:#fff;border:1px solid #d4d4cf;border-radius:12px;box-shadow:0 12px 30px #0002;text-align:left}
+  .site-header .main-nav a{display:flex;align-items:center;min-height:48px;padding:8px 12px;font-size:15px;font-weight:600;line-height:1.3;text-decoration:none;border-radius:6px}
+  .js .site-header .main-nav{position:absolute;z-index:30;top:calc(100% + 4px);right:0;width:min(280px,100%);max-height:calc(100svh - var(--site-header-height,100px) - 16px);overflow-y:auto;overscroll-behavior:contain}
+  .js .site-header .main-nav:not(.is-open){display:none}
+  .js .site-header .main-nav.is-open{display:grid}
+}
+@media print{.site-header{position:static!important}.site-header::before{display:none}}
