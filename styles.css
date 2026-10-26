@@ -106,3 +106,8 @@ body:not(.subpage) .site-header{padding-block:10px;min-height:100px}
 .scroll-reveal:focus-within{opacity:1;transition:none}
 @media(prefers-reduced-motion:reduce){.scroll-reveal.reveal-pending{opacity:1}}
 @media print{.scroll-reveal.reveal-pending{opacity:1}}
+
+/* Give the business name more emphasis than the credit label. */
+.powered-by{gap:.35em}
+.powered-by .credit-label{color:#70706b;font-weight:400}
+.powered-by .credit-name{color:#191919;font-weight:700}
