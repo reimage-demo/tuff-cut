@@ -121,3 +121,14 @@ body:not(.subpage) .site-header{padding-block:10px;min-height:100px}
 .barber-copy>p:not(.small-label){max-width:560px;font-size:18px;line-height:1.65;color:#535353}
 @media(max-width:800px){.barber-row{grid-template-columns:minmax(220px,.9fr) 1fr;gap:28px}.barber-copy h3{font-size:32px}.barber-copy>p:not(.small-label){font-size:17px}}
 @media(max-width:600px){.barber-row{grid-template-columns:1fr;gap:24px;padding-block:32px}.barber-row>figure{width:100%;max-width:400px;justify-self:center}.barber-copy{grid-column:1}.barber-copy h3{font-size:32px}.barber-copy>p:not(.small-label){font-size:17px}}
+
+/* Let customer reviews fill the section without a decorative side panel. */
+.reviews-section{display:block}
+.reviews-heading{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:28px}
+.reviews-heading h2{font-size:32px}
+.reviews-heading .text-link{font-size:15px}
+.reviews-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.review,.review+.review{margin:0;padding:24px 0 0;border-top:1px solid var(--line)}
+.review blockquote{font-size:19px;line-height:1.55}
+@media(max-width:1000px){.reviews-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.reviews-heading{display:block}.reviews-heading .text-link{margin-top:12px}.reviews-list{grid-template-columns:1fr;gap:28px}.review blockquote{font-size:18px}}
