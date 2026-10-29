@@ -100,12 +100,13 @@ body:not(.subpage) .site-header{padding-block:10px;min-height:100px}
   .cuts-stage{touch-action:pan-x pan-y pinch-zoom}
 }
 
-/* Content remains visible without JavaScript and in reduced-motion/print views. */
-.scroll-reveal{transition:opacity .65s ease-out}
-.scroll-reveal.reveal-pending{opacity:0;transition:none}
-.scroll-reveal:focus-within{opacity:1;transition:none}
-@media(prefers-reduced-motion:reduce){.scroll-reveal.reveal-pending{opacity:1}}
-@media print{.scroll-reveal.reveal-pending{opacity:1}}
+/* Amanah-style entrances; content is visible without JS or with reduced motion. */
+@media(prefers-reduced-motion:no-preference){
+  .scroll-reveal{opacity:0;transform:translateY(18px);transition:opacity .62s cubic-bezier(.2,.7,.2,1),transform .62s cubic-bezier(.2,.7,.2,1);transition-delay:var(--reveal-delay,0s)}
+  .scroll-reveal.is-revealed{opacity:1;transform:translateY(0)}
+  .scroll-reveal:focus-within{opacity:1;transform:none;transition-delay:0s}
+}
+@media print{.scroll-reveal{opacity:1!important;transform:none!important}}
 
 /* Give the business name more emphasis than the credit label. */
 .powered-by{gap:.35em}

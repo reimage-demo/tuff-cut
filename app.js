@@ -46,36 +46,54 @@
   });
 })();
 
-// Reveal each content block once, without changing layout or gallery transforms.
+// Match Amanah’s once-only 18px fade-up and 90ms stagger.
 (() => {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
 
-  const blocks = document.querySelectorAll([
-    '.hero-copy', '.hero-equipment', '.cuts-heading', '.cuts-carousel',
+  const candidates = new Set(document.querySelectorAll([
+    '.hero-copy > *', '.hero-equipment', '.cuts-heading', '.cuts-carousel',
     '.visit-grid > div', '.section-heading', '.price-group', '.price-list > p',
     '.price-list > a', '.services-photo', '.owner-visual', '.owner-copy', '.barber-row',
-    '.portrait-note', '.reviews-heading', '.review', '.call-layout > div',
+    '.reviews-heading', '.review', '.call-layout > div',
     '.shop-gallery > figure', '.payment-strip', '.payment-heading', '.payment-method',
     '.payment-instructions', '.payment-contact', '.legal-content > *',
     '.footer-top', '.footer-bottom', '.landing-intro', '.landing-actions > a',
     '.landing-details', '.landing-footer'
-  ].join(', '));
+  ].join(', ')));
+  [
+    '.hero-copy', '.visit-grid', '.owner-profile', '.barber-list', '.reviews-list',
+    '.call-layout', '.shop-gallery', '.payment-methods', '.landing-actions'
+  ].forEach(selector => {
+    document.querySelectorAll(selector).forEach(group => {
+      [...group.children].forEach((block, index) => {
+        if (candidates.has(block)) block.style.setProperty('--reveal-delay', `${(index % 3) * 0.09}s`);
+      });
+    });
+  });
+  // Animate each block once, without doubling movement on nested elements.
+  const blocks = [...candidates].filter(block => {
+    for (let parent = block.parentElement; parent; parent = parent.parentElement) {
+      if (candidates.has(parent)) return false;
+    }
+    return true;
+  });
   const reveal = block => {
-    block.classList.remove('reveal-pending');
+    block.classList.add('is-revealed');
     observer.unobserve(block);
   };
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => { if (entry.isIntersecting) reveal(entry.target); });
-  }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
   blocks.forEach(block => {
-    block.classList.add('scroll-reveal', 'reveal-pending');
+    // Keep content above restored scroll positions and direct anchors visible.
+    if (block.getBoundingClientRect().bottom < 0) return;
+    block.classList.add('scroll-reveal');
     observer.observe(block);
   });
-  // Keyboard users should never land on an invisible control.
   document.addEventListener('focusin', event => {
-    const block = event.target.closest('.reveal-pending');
+    const block = event.target.closest('.scroll-reveal');
     if (block) reveal(block);
   });
   reducedMotion.addEventListener('change', event => {
