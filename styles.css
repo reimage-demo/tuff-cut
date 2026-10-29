@@ -111,3 +111,10 @@ body:not(.subpage) .site-header{padding-block:10px;min-height:100px}
 .powered-by{gap:.35em}
 .powered-by .credit-label{color:#70706b;font-weight:400}
 .powered-by .credit-name{color:#191919;font-weight:700}
+
+/* Keep fuller barber biographies readable alongside the existing portraits. */
+.barber-copy>p:not(.small-label){max-width:560px;font-size:16px;color:#535353}
+.barber-copy>p:not(.small-label)+p{margin-top:12px}
+.barber-monogram{aspect-ratio:1;display:grid;place-items:center;border:1px solid #bcbcb9;border-radius:5px;background:#cececa;color:#444;font-size:56px;font-weight:600}
+@media(max-width:440px){.barber-copy>p:not(.small-label){font-size:15px}.barber-monogram{font-size:40px}}
+@media(max-width:440px){.barber-row{grid-template-columns:1fr;gap:16px}.barber-row>figure{grid-row:auto;width:86px}.barber-copy,.barber-contact{grid-column:1}}
