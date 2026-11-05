@@ -162,3 +162,10 @@ body:not(.subpage) .site-header{padding-block:10px;min-height:100px}
 .review blockquote{font-size:19px;line-height:1.55}
 @media(max-width:1000px){.reviews-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.reviews-heading{display:block}.reviews-heading .text-link{margin-top:12px}.reviews-list{grid-template-columns:1fr;gap:28px}.review blockquote{font-size:18px}}
+
+/* Scroll-triggered phone shortcut, clear of device safe areas. */
+.floating-call{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));z-index:900;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid #fff;border-radius:50%;background:#202020;color:#fff;box-shadow:0 3px 14px #0003;text-decoration:none}
+.floating-call svg{display:block;pointer-events:none}
+.floating-call:hover{background:#202020;color:#fff;text-decoration:none}
+.floating-call:focus-visible{outline:3px solid #191919;outline-offset:4px}
+@media print{.floating-call{display:none!important}}
