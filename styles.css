@@ -124,24 +124,32 @@ body:not(.subpage) .site-header{padding-block:10px;min-height:100px}
 .powered-by .credit-label{color:#70706b;font-weight:400}
 .powered-by .credit-name{color:#191919;font-weight:700}
 
-/* Prominent portraits and concise biographies, with one shared shop number. */
-.barber-row{grid-template-columns:minmax(240px,340px) minmax(0,1fr);gap:48px;padding-block:36px;align-items:center}
-.barber-row>figure{width:100%;grid-row:auto;align-self:center}
+/* Center every portrait-and-biography pair on the same section axis. */
+.barbers-heading{text-align:center;margin-bottom:36px}
+.owner-profile,.barber-row{width:100%;max-width:948px;margin-inline:auto;grid-template-columns:minmax(0,340px) minmax(0,560px);gap:48px;align-items:center}
+.owner-profile{padding-bottom:36px}
+.barber-row{padding-block:36px}
+.owner-visual,.barber-row>figure{width:100%;max-width:340px;grid-row:auto;align-self:center;justify-self:center}
 .barber-row figure img{display:block;width:100%;height:auto;aspect-ratio:auto;border-radius:6px}
-.barber-copy{grid-column:auto}
+.owner-copy,.barber-copy{width:100%;max-width:560px;grid-column:auto;text-align:center;justify-self:center}
+.owner-copy>p,.barber-copy>p{margin-inline:auto}
 .barber-copy h3{font-size:36px;margin:8px 0 16px}
 .barber-copy>p:not(.small-label){max-width:560px;font-size:18px;line-height:1.65;color:#535353}
-@media(max-width:800px){.barber-row{grid-template-columns:minmax(220px,.9fr) 1fr;gap:28px}.barber-copy h3{font-size:32px}.barber-copy>p:not(.small-label){font-size:17px}}
-@media(max-width:700px){.barber-row{grid-template-columns:1fr;gap:24px;padding-block:32px}.barber-row>figure{width:100%;max-width:400px;justify-self:center}.barber-copy{grid-column:1}.barber-copy h3{font-size:32px}.barber-copy>p:not(.small-label){font-size:17px}}
-
-/* Continue the left/right rhythm after Odean's opening portrait. */
 @media(min-width:701px){
-  .barber-row:nth-child(odd){grid-template-columns:minmax(0,1fr) minmax(240px,340px)}
+  .barber-row:nth-child(odd){grid-template-columns:minmax(0,560px) minmax(0,340px)}
   .barber-row:nth-child(odd)>figure{grid-column:2;grid-row:1}
-  .barber-row:nth-child(odd)>.barber-copy{grid-column:1;grid-row:1;width:100%;max-width:560px;justify-self:end}
+  .barber-row:nth-child(odd)>.barber-copy{grid-column:1;grid-row:1}
 }
 @media(min-width:701px) and (max-width:800px){
-  .barber-row:nth-child(odd){grid-template-columns:1fr minmax(220px,.9fr)}
+  .owner-profile,.barber-row{grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:28px}
+  .barber-row:nth-child(odd){grid-template-columns:minmax(0,1fr) minmax(0,.9fr)}
+}
+@media(max-width:800px){.barber-copy h3{font-size:32px}.barber-copy>p:not(.small-label){font-size:17px}}
+@media(max-width:700px){
+  .owner-profile,.barber-row{grid-template-columns:1fr;gap:24px}
+  .barber-row{padding-block:32px}
+  .owner-visual,.barber-row>figure{max-width:400px}
+  .owner-copy,.barber-copy{grid-column:1}
 }
 
 /* Let customer reviews fill the section without a decorative side panel. */
