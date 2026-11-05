@@ -27,15 +27,18 @@ body:not(.subpage) .site-header{min-height:76px;padding-block:14px}
 .equipment-brush{width:min(28vw,350px);right:-38px;bottom:-50px;transform:rotate(12deg)}
 .owner-visual{width:min(100%,420px);justify-self:start}.owner-visual>h2{margin-bottom:24px}.owner-visual>figure{width:100%}
 .owner-visual>figure>img{height:auto;max-height:none;aspect-ratio:3/4;object-fit:contain;object-position:center}
-.shop-gallery{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:center;gap:24px}
-.shop-copy{max-width:430px;padding-right:24px}
-.shop-copy .small-label{color:var(--grey);margin-bottom:16px}
-.shop-copy h3{font-size:clamp(32px,3.2vw,42px);margin-bottom:20px}
+.shop-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:clamp(32px,5vw,72px)}
+.shop-copy{max-width:500px}
+.shop-copy .section-heading{margin-bottom:28px}
+.gallery-storefront{width:100%;max-width:480px;justify-self:end}
+.shop-gallery .gallery-storefront img{height:auto;max-height:none;object-fit:contain}
+.shop-copy .small-label{color:var(--grey);margin-bottom:12px}
+.shop-copy h3{font-size:clamp(30px,2.8vw,36px);margin-bottom:16px}
 .shop-copy>p:not(.small-label){color:var(--grey);font-size:18px;line-height:1.65}
-.shop-copy .button{margin-top:26px;background:#202020;border-color:#202020;color:#fff}
+.shop-copy .button{margin-top:24px;background:#202020;border-color:#202020;color:#fff}
 .shop-copy .button:hover{background:#444;border-color:#444}
 .shop-copy>p.shop-welcome{font-size:14px;margin-top:16px}
-@media(max-width:700px){.shop-copy{max-width:500px;padding-right:0}.shop-copy>p:not(.small-label):not(.shop-welcome){font-size:17px}}
+@media(max-width:700px){.shop-copy{max-width:500px}.gallery-storefront{justify-self:center}.shop-copy>p:not(.small-label):not(.shop-welcome){font-size:17px}}
 @media(min-width:701px) and (max-width:900px){.hero-copy{width:calc(100% - 280px)}.hero h1{font-size:36px}}
 @media(max-width:700px){
   .hero{height:min(440px,calc(100svh - 76px));padding:90px 12px;grid-template-rows:none}
@@ -129,7 +132,17 @@ body:not(.subpage) .site-header{padding-block:10px;min-height:100px}
 .barber-copy h3{font-size:36px;margin:8px 0 16px}
 .barber-copy>p:not(.small-label){max-width:560px;font-size:18px;line-height:1.65;color:#535353}
 @media(max-width:800px){.barber-row{grid-template-columns:minmax(220px,.9fr) 1fr;gap:28px}.barber-copy h3{font-size:32px}.barber-copy>p:not(.small-label){font-size:17px}}
-@media(max-width:600px){.barber-row{grid-template-columns:1fr;gap:24px;padding-block:32px}.barber-row>figure{width:100%;max-width:400px;justify-self:center}.barber-copy{grid-column:1}.barber-copy h3{font-size:32px}.barber-copy>p:not(.small-label){font-size:17px}}
+@media(max-width:700px){.barber-row{grid-template-columns:1fr;gap:24px;padding-block:32px}.barber-row>figure{width:100%;max-width:400px;justify-self:center}.barber-copy{grid-column:1}.barber-copy h3{font-size:32px}.barber-copy>p:not(.small-label){font-size:17px}}
+
+/* Continue the left/right rhythm after Odean's opening portrait. */
+@media(min-width:701px){
+  .barber-row:nth-child(odd){grid-template-columns:minmax(0,1fr) minmax(240px,340px)}
+  .barber-row:nth-child(odd)>figure{grid-column:2;grid-row:1}
+  .barber-row:nth-child(odd)>.barber-copy{grid-column:1;grid-row:1}
+}
+@media(min-width:701px) and (max-width:800px){
+  .barber-row:nth-child(odd){grid-template-columns:1fr minmax(220px,.9fr)}
+}
 
 /* Let customer reviews fill the section without a decorative side panel. */
 .reviews-section{display:block}
