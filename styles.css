@@ -138,7 +138,7 @@ body:not(.subpage) .site-header{padding-block:10px;min-height:100px}
 @media(min-width:701px){
   .barber-row:nth-child(odd){grid-template-columns:minmax(0,1fr) minmax(240px,340px)}
   .barber-row:nth-child(odd)>figure{grid-column:2;grid-row:1}
-  .barber-row:nth-child(odd)>.barber-copy{grid-column:1;grid-row:1}
+  .barber-row:nth-child(odd)>.barber-copy{grid-column:1;grid-row:1;width:100%;max-width:560px;justify-self:end}
 }
 @media(min-width:701px) and (max-width:800px){
   .barber-row:nth-child(odd){grid-template-columns:1fr minmax(220px,.9fr)}
